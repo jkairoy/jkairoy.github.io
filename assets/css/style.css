@@ -2,7 +2,7 @@ html {
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 14px;
     color: white;
-    --background-color: rgba(0, 0, 0, 0.94);
+    --background-color: #0F0F0F;
     background-color: var(--background-color);
 }
 
@@ -10,8 +10,16 @@ body {
 }
 
 header {
+    z-index: 100;
     display: flex;
     flex-direction: row;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    background-color: var(--background-color);
 }
 
 a {
@@ -19,6 +27,7 @@ a {
     background-color: rgba(255, 255, 255, 0.2);
     color: currentColor;
     transition: 0.06s;
+    cursor: pointer;
 }
 
 a:hover {
@@ -26,23 +35,27 @@ a:hover {
 }
 
 h1 {
+    display: block;
     font-size: 48px;
     margin-bottom: 10px;
 }
 
 h2 {
-    margin-top: 64px;
+    display: block;
+    margin-top: 48px;
     font-size: 36px;
     font-weight: 700;
 }
 
 h3 {
+    display: block;
     margin: 0;
     font-size: 20px;
     font-weight: 600;
 }
 
 h4 {
+    display: block;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -62,11 +75,12 @@ p {
     line-height: 20px;
 }
 
-ul {
-    margin: 0;
-    padding: 0;
-    text-indent: 0;
-    list-style-type: none;
+section {
+    margin-top: 20px;
+}
+
+li {
+    color: rgba(255, 255, 255, 0.8)
 }
 
 footer {
@@ -77,6 +91,15 @@ footer {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+.header_buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.header_buttons a {
+    margin-left: 16px;
 }
 
 .wrapper_container {
@@ -104,7 +127,6 @@ footer {
     /*box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.2);*/
     overflow: hidden;
     transition: 0.2s;
-    cursor: pointer;
     background-color: rgba(0, 0, 0, 0.4);
 }
 
@@ -215,7 +237,17 @@ footer {
     margin-left: 10px;
     color: inherit;
     background-color: transparent;
-    cursor: pointer;
+}
+
+.timeline {
+    margin: 0;
+    padding: 0;
+    text-indent: 0;
+    list-style-type: none;
+}
+
+.timeline > li {
+    color: white;
 }
 
 .gradient_text {

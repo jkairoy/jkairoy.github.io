@@ -1,0 +1,10 @@
+---
+layout: default
+---
+<h1>{{ page.title | escape }}</h1>
+<div style="margin-top: 10px">
+    {% for category in page.categories %}
+    <div class="tag">{{ category }}</div>
+    {% endfor %}
+</div>
+{{ content }}
