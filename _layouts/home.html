@@ -1,0 +1,91 @@
+---
+layout: default
+---
+
+<div class="wrapper_container" style="margin-top: 80px; margin-bottom: 40px">
+    <div class="wrapper_content">
+        {% if page.title %}
+        <h1 class="page-heading">{{ page.title }}</h1>
+        {% endif %}
+        <div>
+        <h1 class="gradient_text">Hi, I'm Johnny!</h1>
+        <p class="text_large">I'm a senior at Brown University studying computer science and economics, a software engineering intern at Microsoft, a research assistant at Brown's HCI lab, a distributed systems enthusiast, and a full-stack engineer with a passion for creating delightful user experiences.</p>
+        </div>
+        <h2>Projects</h2>
+        <div class="project_grid">
+            {% assign sorted_pages = site.pages | sort: 'date' | reverse %}
+            {% for page in sorted_pages %}
+            {% if page.dir == "/projects/" %}
+            {% assign id = page.name | remove: '.md' %}
+            <a href="{% if page.external_url %}{{page.external_url}}{% else %}{{ page.url }}{% endif %}" class="card"
+               id="{{id}}">
+                <div class="card_image_container"
+                     style="{% if page.image_position == 'bottom' %}
+                    align-items: flex-end;
+                    {% else %}
+                    align-items: center;
+                    {% endif %}">
+                    <img class="card_image" {% if page.image_position== 'cover' %}style="width: 100%"{% endif %} src="{{
+                    '/assets/img/projects/' | append: id | append: '.png' }}"/>
+                </div>
+                <div class="card_body">
+                    <h3>{{ page.title }}</h3>
+                    <p>{{ page.description }}</p>
+                    <div style="margin-top: 10px">
+                        {% for category in page.categories %}
+                        <div class="tag">{{ category }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </a>
+            <!-- Script for setting background of card image -->
+            <script>
+				document.querySelector('#{{id}} .card_image_container').style.background = `
+                    {% for color in page.gradient_colors %}
+                    radial-gradient(circle at ${Math.floor(Math.random() * 100)}% ${Math.floor(Math.random() * 100)}%, {{color}}, rgba(0, 0, 0, 0) 100%)
+                    {% if forloop.last %}{% else %},{% endif %}
+                    {% endfor %}`
+				{% if page.background_color != null %}
+				document.querySelector('#{{id}} .card_image_container').style.backgroundColor = "{{page.background_color}}"
+				{% endif %}
+            </script>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <h2>Experience</h2>
+        <ul>
+            {% for experience in site.data.experience %}
+            <li class="experience">
+                <div class="experience_frame">
+                    <div class="image_frame">
+                        <img src="{{ '/assets/img/organizations/' | append: experience.organization | replace: ' ', '-' | downcase | append: '.png' }}"/>
+                    </div>
+                    {% if forloop.last %}{% else %}<div class="line"></div>{% endif %}
+                </div>
+                <div class="experience_body" {% if forloop.last %}style="margin-bottom: 0"{% else %}{% endif %}>
+                    <h3>{{experience.title}}</h3>
+                    <h4>{{experience.organization}}</h4>
+                    <sub>{{experience.dates}}</sub>
+                    <p>{{experience.description | markdownify}}</p>
+                    <div style="margin-top: 10px">
+                        {% for tag in experience.tags %}
+                        <div class="tag">{{ tag }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <h2>Skills</h2>
+        {% for category in site.data.skills %}
+        <h4 style="margin-bottom: 10px">{{category[0]}}</h4>
+        <div style="margin-bottom: 20px">
+        {% assign skills = category[1] | sort %}
+        {% for skill in skills%}
+        <div class="tag">{{skill}}</div>
+        {% endfor %}
+        </div>
+        {% endfor %}
+        {{ content }}
+    </div>
+</div>

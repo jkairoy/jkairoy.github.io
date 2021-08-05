@@ -1,0 +1,8 @@
+{
+  "Languages": ["GoLang", "C++", "C", "CSS", "TypeScript", "JavaScript", "Java", "Scala", "OCaml", "Python", "HTML", "Dart", "SQL", "MATLAB"],
+  "Front-End Technologies": ["React Native", "React.js", "EJS", "Mustache", "jQuery", "Flutter", "Redux", "Jekyll", "Hugo", "Three.js", "D3.js", "Bootstrap", "Material UI", "Jinja", "Ajax"],
+  "Back-End Technologies": ["MySQL/MariaDB", "PostgreSQL", "MongoDB", "Socket.io", "Flask", "Django", "Express", "GraphQL", "Node.js", "Redis", "gRPC"],
+  "Dev-Ops": ["AWS S3", "Docker", "Firebase", "Heroku", "Azure"],
+  "Other Tools": ["Figma", "Adobe XD", "Adobe Illustrator", "Selenium", "Puppeteer", "Jest", "Git", "Pandas", "Numpy", "Scipy", "OpenAI Gym", "Solidity", "Unity"],
+  "Other Skills": ["Machine Learning", "Consensus Algorithms", "Blockchain", "Economics", "UI/UX", "IoT", "Augmented Reality"]
+}
