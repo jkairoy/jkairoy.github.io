@@ -6,7 +6,7 @@ layout: default
         <section>
             <div>
                 <h1 class="gradient_text">Hi, I'm Johnny!</h1>
-                <p class="text_large">I'm a senior at Brown University studying computer science and economics, a software engineering intern at Microsoft, a research assistant at Brown's HCI lab, a distributed systems enthusiast, and a full-stack engineer with a passion for creating delightful user experiences.</p>
+                <p class="text_large">I'm a senior at Brown University studying computer science, a software engineering intern at Snackpass, a research assistant at Brown's HCI lab, a distributed systems enthusiast, and a full-stack engineer with a passion for creating delightful user experiences.</p>
             </div>
         <section>
             <h2 id="projects">Projects</h2>
@@ -63,15 +63,14 @@ layout: default
                         {% if forloop.last %}{% else %}<div class="line"></div>{% endif %}
                     </div>
                     <div class="experience_body" {% if forloop.last %}style="margin-bottom: 0"{% else %}{% endif %}>
-                        <h3>{{experience.title}}</h3>
-                        <h4>{{experience.organization}}</h4>
-                        <sub>{{experience.dates}}</sub>
-                        <p>{{experience.description | markdownify}}</p>
-                        <div style="margin-top: 10px">
-                            {% for tag in experience.tags %}
-                            <div class="tag">{{ tag }}</div>
-                            {% endfor %}
-                        </div>
+                        <h3>{{experience.organization}}</h3>
+                        {% for position in experience.positions %}
+                            <div style="margin-bottom: 0px;">
+                                <h4>{{position.title}}</h4>
+                                <sub>{{position.dates}}</sub>
+                                <p>{{position.description | markdownify}}</p>
+                            </div>
+                        {% endfor %}
                     </div>
                 </li>
                 {% endfor %}

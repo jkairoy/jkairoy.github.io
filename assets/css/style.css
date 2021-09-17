@@ -76,7 +76,8 @@ p {
 }
 
 section {
-    margin-top: 20px;
+    display: block;
+    margin-top: 40px;
 }
 
 li {
@@ -194,6 +195,7 @@ footer {
 .experience_frame {
     display: flex;
     flex-direction: column;
+    width: 40px;
     margin-right: 20px;
     align-items: center;
 }
@@ -224,7 +226,7 @@ footer {
 }
 
 .experience_body {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .text_large {
